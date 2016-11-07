@@ -1,0 +1,81 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>Where To Go</title>
+    </h:head>
+    <h:body>
+        <h1>Where To Go</h1>
+        
+       
+        <h:form style="margin:22px;margin-bottom: 32px;">
+            Hi, 
+            <h:outputText value="#{userController.username}"  />
+            <h:commandButton value="Log out" action="#{userController.logoutContainer}" style="margin-left :12px;" />
+        </h:form>
+        
+        <h2 style="margin:12px;">Tourist Spot</h2   >
+        
+        <h:form style="margin-top: 12px;">
+            <h:dataTable var="touristSpot" value="#{whereToGoController.touristSpotList}">
+                <h:column>  
+                    <f:facet name="header">
+                        Name
+                    </f:facet>        
+                    <h:outputText value="#{touristSpot.name}" style="margin: 12px;" />
+                </h:column>
+                <h:column>
+                    <f:facet name="header">
+                        Type
+                    </f:facet>        
+                    <h:outputText value="#{touristSpot.type}" style="margin: 12px;" />
+                </h:column>
+                <h:column>
+                    <f:facet name="header">
+                        State
+                    </f:facet>        
+                    <h:outputText value="#{touristSpot.state}" style="margin: 12px;" />
+                </h:column>
+                <h:column>
+                    <f:facet name="header">
+                        City
+                    </f:facet>        
+                    <h:outputText value="#{touristSpot.city}" style="margin: 12px;" />
+                </h:column>
+                <h:column>
+                    <f:facet name="header">
+
+                    </f:facet>
+                    <h:link value="View" outcome="viewSpot" style="margin:2px;" >
+                        <f:param name="venue" value="#{touristSpot.name}" />
+                    </h:link>
+                </h:column>
+                <h:column>
+                    <f:facet name="header">
+
+                    </f:facet>
+                    <h:link value="Edit" outcome="/admin/editSpot" style="margin:2px;" rendered="#{request.isUserInRole('admin')}" >
+                        <f:param name="venue" value="#{touristSpot.name}" />
+                    </h:link>
+                </h:column>
+                <h:column>
+                    <f:facet name="header">
+
+                    </f:facet>
+                    <h:link value="Delete" outcome="/admin/deleteSpot" style="margin:2px;" rendered="#{request.isUserInRole('admin')}">
+                        <f:param name="venue" value="#{touristSpot.name}" />
+                    </h:link>
+                </h:column>
+            </h:dataTable>
+
+        </h:form>
+        <h:form style="margin-top: 20px; margin-left:12px;">
+            <h:commandButton value="Add Tourist Spot" action="/admin/createSpot" style="margin-right: 12px;" rendered="#{request.isUserInRole('admin')}" />
+        </h:form>
+
+    </h:body>
+</html>
+

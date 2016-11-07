@@ -1,0 +1,44 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core">
+    <f:metadata>
+        <f:viewAction action="#{touristSpotController.findSpot(param.venue)}"/>
+    </f:metadata>
+    <h:head>
+        <title>Where To Go</title>
+    </h:head>
+    <h:body>
+        <h1>Where To Go</h1>
+        <h:form style="margin:12px;">
+            <p>
+                <label>
+                    <b> 
+                        <h:outputText value="#{touristSpotController.spot.name}"/>
+                    </b>
+                </label>
+            </p>
+            <p>
+                <label>Type:
+                    <h:outputText value="#{touristSpotController.spot.type}"/>
+                </label>
+            </p>
+            <p>
+                <label>State:
+                    <h:outputText value="#{touristSpotController.spot.state}"/>
+                </label>
+            </p>
+            <p>
+                <label>City:
+                    <h:outputText value="#{touristSpotController.spot.city}"/>
+                </label>
+            </p>
+            <p>
+                <h:inputHidden value="#{touristSpotController.spot.name}"/>
+                <h:button value="Cancel" outcome="/user/index" style="color: red;" />
+                <h:commandButton value="Delete" action="#{touristSpotController.deleteSpot()}" style="margin-left:22px; "/>
+            </p>
+        </h:form>
+    </h:body>
+</html>

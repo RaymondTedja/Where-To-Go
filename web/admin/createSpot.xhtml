@@ -1,0 +1,52 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>Where To Go</title>
+    </h:head>
+    <h:body>
+        <h1>Where To Go</h1>
+        <h3>New Tourist Spot</h3>
+        <h:form>
+            <p>
+                <label>Name*:
+                    <h:inputText id="name" value="#{touristSpotController.spot.name}" validatorMessage="Tourist Spot name is required" >
+                        <f:validateLength minimum="1" />
+                    </h:inputText>
+                    <br/><h:message for="name" style="color:red;"/>
+                </label>
+            </p>
+            <p>
+                <label>Type*:
+                    <h:inputText id="type" value="#{touristSpotController.spot.type}" validatorMessage="Tourist Spot type is required">
+                        <f:validateLength minimum="1" />
+                    </h:inputText>
+                    <br/><h:message for="type" style="color:red;"/>
+                </label>
+            </p>
+            <p>
+                <label>State*:
+                    <h:inputText id="state" value="#{touristSpotController.spot.state}" validatorMessage="state is required">
+                        <f:validateLength minimum="1" />
+                    </h:inputText>
+                    <br/><h:message for="state" style="color:red;"/>
+                </label>
+            </p>
+            <p>
+                <label>City*:
+                    <h:inputText id="city" value="#{touristSpotController.spot.city}" validatorMessage="city is required" >
+                        <f:validateLength minimum="1" />
+                    </h:inputText>
+                    <br/><h:message for="city" style="color:red;"/>
+                </label>
+            </p>
+            <p>
+                <h:button value="Cancel" outcome="/user/index" style="margin: 12px;color: red;" />
+                <h:commandButton value="Add into WTG" action="#{touristSpotController.addSpot()}" style="margin: 12px;"  />             
+            </p>
+            <h:messages style="color: red;" />
+        </h:form>
+    </h:body>
+</html>

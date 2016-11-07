@@ -1,0 +1,55 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core">
+    <f:metadata>
+        <f:viewAction action="#{touristSpotController.findSpot(param.venue)}"/>
+    </f:metadata>
+    <h:head>
+        <title>Where To Go</title>
+    </h:head>
+    <h:body>
+        <h1>Where To Go</h1>
+        <h:form style="margin:12px;">
+            <p>
+                <label>
+                    <h2> 
+                        <h:outputText value="#{touristSpotController.spot.name}"/>
+                    </h2>
+                </label>
+            </p>
+            <p>
+                <label>Type:
+                    <h:outputText value="#{touristSpotController.spot.type}"/>
+                </label>
+            </p>
+            <p>
+                <label>State:
+                    <h:outputText value="#{touristSpotController.spot.state}"/>
+                </label>
+            </p>
+            <p style="margin-bottom: 22px;">
+                <label>City:
+                    <h:outputText value="#{touristSpotController.spot.city}"/>
+                </label>
+            </p>
+            <p style="margin-bottom: 22px;">
+                <label>
+                    <h:button value="Return" outcome="/user/index" />
+                </label>
+            </p>
+        </h:form>
+        <hr/>           
+        <h2 style="margin-top:32px;"> Reviews </h2>
+
+        <h1 style="color:red;">Under Development</h1>
+        <h:form>
+            <p>
+                <h:inputHidden value="#{touristSpotController.spot.name}"/>
+                <h:button value="Return" outcome="/user/index"/>      
+
+        </p>
+    </h:form>
+</h:body>
+</html>

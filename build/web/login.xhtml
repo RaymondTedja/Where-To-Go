@@ -1,0 +1,44 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>Where To Go</title>
+    </h:head>
+    <h:body>
+        <h:form>
+            <p>
+                <h1>Where To Go</h1>
+                <h3>Login</h3>
+            </p>
+            <p>
+                <label>Username:
+                    <h:inputText id="username" value="#{userController.username}" validatorMessage="Please enter your WTG username" >
+                        <f:validateLength minimum="1" />
+                    </h:inputText>
+                    <br/>
+                </label>
+            </p>
+            <p>
+                <label>Password:
+                    <h:inputSecret id="password" value="#{userController.password}" validatorMessage="Please enter your password" >
+                        <f:validateLength minimum="1" />
+                    </h:inputSecret>
+                    <br/>
+                </label>
+            </p>
+            <h:messages style="color: red;"/>
+            <p>
+                <h:commandButton value="Login" action="#{userController.loginContainer}" />
+            </p>
+            <p>
+                You don't have an account? you can <h:link value="register here" outcome="register.xhtml" />
+                <br/>
+            </p>
+        </h:form>
+
+    </h:body>
+</html>
+
+

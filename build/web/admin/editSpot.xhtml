@@ -1,0 +1,54 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core">
+    <f:metadata>
+        <f:viewAction action="#{touristSpotController.findSpot(param.venue)}"/>
+    </f:metadata>
+    <h:head>
+        <title>Waiting List</title>
+    </h:head>
+    <h:body>
+        <h1>Where To Go</h1>
+        <h:form style="margin: 12px;">
+            <p>
+                <label>Tourist Spot*:
+                    <h:inputText id="name" value="#{touristSpotController.spot.name}" validatorMessage="Tourist Spot name is required" >
+                        <f:validateLength minimum="1" />
+                        <br/><h:message for="name" style="color:red;"/>
+                    </h:inputText>
+                </label>
+            </p>
+            <p>
+                <label>Type*:
+                    <h:inputText id="type" value="#{touristSpotController.spot.type}" validatorMessage="Tourist Spot Type is required">
+                        <f:validateLength minimum="1" />
+                    </h:inputText>
+                    <br/><h:message for="type" style="color:red;"/>
+                </label>
+            </p>
+            <p>
+                <label>State*:
+                    <h:inputText id="state" value="#{touristSpotController.spot.state}" validatorMessage="State is required">
+                        <f:validateLength minimum="1" />
+                    </h:inputText>
+                    <br/><h:message for="state" style="color:red;"/>
+                </label>
+            </p>
+            <p>
+                <label>City*:
+                    <h:inputText id="city" value="#{touristSpotController.spot.city}" validatorMessage="City is required">
+                        <f:validateLength minimum="1" />
+                    </h:inputText>
+                    <br/><h:message for="city" style="color:red;"/>
+                </label>
+            </p>
+            <p>
+                <h:inputHidden value="#{touristSpotController.spot.name}"/>
+                <h:button value="Cancel" outcome="/user/index" style="color:red;"/>
+                <h:commandButton value="Save" action="#{touristSpotController.saveChanges}" style="margin-left:24px;"/>
+            </p>
+        </h:form>
+    </h:body>
+</html>
